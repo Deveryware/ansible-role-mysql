@@ -190,6 +190,22 @@ None.
         password: similarly-secure-password
         priv: "example_db.*:ALL"
 
+## Replication Master Master
+
+Variable to define to use Master Master replication on each host:
+
+    mysql_logs_bin:
+    mysql_replication_master:
+    mysql_replication_role: [master01] / [master02]
+    mysql_server_id:
+
+to use it:
+
+    - hosts: Databases-Servers
+      become: yes
+      roles:
+        - { role: ansible-role-mysql, mysql_replication_master_master: true}
+        
 ## License
 
 MIT / BSD
